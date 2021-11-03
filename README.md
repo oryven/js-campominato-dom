@@ -1,2 +1,2 @@
-# js-campominato-dom
-Campo Minato
+# js-campominato-grid
+Griglia Campo Minato
