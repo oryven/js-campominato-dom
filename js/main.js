@@ -36,12 +36,18 @@ let difficolta = parseInt(prompt("scegli la difficoltà del gioco tra 1, 2, 3"))
 const bombe = [];
 console.log (bombe)
 
+let max;
+let min = 1;
+
 if (difficolta == 1){
     inizio(100, "facile");
+    max = 100;
 } else if (difficolta == 2){
     inizio(81, "media");
+    max = 81
 } else if (difficolta == 3){
     inizio(49, "difficile");
+    max = 49;
 }
 
 function creareCelle ( elementoGenerato , classeInserita ){
@@ -54,22 +60,35 @@ function inizio(livello, classe) {
     for ( let i = 1; i <= livello; i++) {
 
         let nuoveCelle = creareCelle("div", classe);
+        nuoveCelle.id = i;
         contenitoreCelle.append(nuoveCelle);
         
         console.log(nuoveCelle);
 
         nuoveCelle.addEventListener("click",
             function(){
-                nuoveCelle.classList.add("cliccato");
-                nuoveCelle.innerText = i;
-            }
+                this.classList.add("cliccato");
+                this.innerText = i;
+                const id = this.id;
+                console.log('hai clickato su id ', id);
+
+                let id = parseInt(nuoveCelle.id);
+
+                if(bombe.includes(id)) {
+                    this.classList.add("bomba");
+                    allert ("Hai perso");
+                }
+            }   
         )
     }
 }
 
 while (bombe.length < 16){
-    const max = 49;
-    const min = 1;
+   // 0 e 1 => io voglio numeri compresi tra 1 e 49
+   /*
+    quando genera 0, io voglio che sia 1
+    quando genera 1, vuoi 48
+   */
 
     const numeroBombe = Math.floor(Math.random()*(max-min)+min);
 
