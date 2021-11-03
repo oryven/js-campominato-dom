@@ -7,6 +7,7 @@
 body {
     background-color: #81a2bd;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: black;
 }
 
 header, footer {
@@ -64,7 +65,7 @@ header, footer {
 .difficile {
     width: calc(100% / 7);
     height: calc(100% / 7);
-    border: solid white 1px;
+    border: solid black 1px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -73,6 +74,9 @@ header, footer {
 
 .cliccato {
     background-color: rgb(128, 215, 242);
-    color: black;
+}
+
+.bomba {
+    background-color: red;
 }
 
