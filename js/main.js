@@ -62,21 +62,17 @@ function inizio(livello, classe) {
         let nuoveCelle = creareCelle("div", classe);
         nuoveCelle.id = i;
         contenitoreCelle.append(nuoveCelle);
-        
-        console.log(nuoveCelle);
 
         nuoveCelle.addEventListener("click",
             function(){
-                this.classList.add("cliccato");
-                this.innerText = i;
-                const id = this.id;
+                nuoveCelle.classList.add("cliccato");
+                nuoveCelle.innerText = i;
+                const id = parseInt(nuoveCelle.id);
                 console.log('hai clickato su id ', id);
 
-                let id = parseInt(nuoveCelle.id);
-
                 if(bombe.includes(id)) {
-                    this.classList.add("bomba");
-                    allert ("Hai perso");
+                    nuoveCelle.classList.add("bomba");
+                    alert ("Hai perso");
                 }
             }   
         )
